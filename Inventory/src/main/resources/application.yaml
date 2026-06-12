@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: inventory-service
+
+  cloud:
+    function:
+      definition: inventoryConsumer
+
+    stream:
+      bindings:
+        inventoryConsumer-in-0:
+          destination: order-topic
+
+        inventoryConsumer-out-0:
+          destination: inventory-topic
+
+      kafka:
+        binder:
+          brokers: localhost:9092

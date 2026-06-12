@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        orderdetail-out-0:
+          destination: order-topic
+          content-type: application/json
+          producer:
+            use-native-encoding: false
+
+      kafka:
+        binder:
+          brokers: localhost:9092

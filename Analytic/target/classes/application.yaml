@@ -1,0 +1,17 @@
+server:
+  port: 8085
+spring:
+  cloud:
+    stream:
+      bindings:
+        analyticsConsumer-in-0:
+          destination: order-topic
+          contentType: application/json
+
+        analyticsConsumer-out-0:
+          destination: analytics-topic
+          contentType: application/json
+
+      kafka:
+        binder:
+          brokers: localhost:9092
